@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ryan Nguyen — Junior Digital Marketer portfolio. SEO, Paid Ads, Content, Social Media, Landing Pages and AI-assisted marketing projects.">
+<title>Ryan Nguyen | Junior Digital Marketer</title>
+<style>
+:root{
+  --bg:#0a0a0a;
+  --panel:#121212;
+  --panel2:#171717;
+  --text:#f5f5f5;
+  --muted:#a5a5a5;
+  --line:#292929;
+  --accent:#c7ff3d;
+  --accent2:#7d5cff;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 85% 10%,rgba(125,92,255,.16),transparent 28%),
+    radial-gradient(circle at 10% 35%,rgba(199,255,61,.08),transparent 24%),
+    var(--bg);
+  color:var(--text);line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),92%);margin:auto}
+nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(18px);
+  background:rgba(10,10,10,.78);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;letter-spacing:-.04em;font-size:1.1rem}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:26px;color:#c9c9c9;font-size:.9rem}
+.nav-links a:hover{color:var(--accent)}
+.hero{padding:110px 0 90px;min-height:720px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center}
+.kicker{color:var(--accent);font-size:.82rem;text-transform:uppercase;letter-spacing:.18em;font-weight:800;margin-bottom:22px}
+h1{font-size:clamp(3.3rem,8vw,7rem);line-height:.92;letter-spacing:-.075em;max-width:850px}
+h1 em{font-style:normal;color:var(--accent)}
+.hero-copy{font-size:1.08rem;color:#c0c0c0;max-width:680px;margin:30px 0}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;padding:13px 19px;border-radius:999px;border:1px solid var(--line);font-weight:800;font-size:.9rem;transition:.25s}
+.btn-primary{background:var(--accent);color:#080808;border-color:var(--accent)}
+.btn:hover{transform:translateY(-3px)}
+.hero-card{
+  background:linear-gradient(145deg,#191919,#0f0f0f);
+  border:1px solid #2b2b2b;border-radius:28px;padding:30px;
+  box-shadow:0 25px 80px rgba(0,0,0,.35);
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float{50%{transform:translateY(-9px)}}
+.mini-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:#777}
+.metric{font-size:3.7rem;font-weight:900;letter-spacing:-.06em;margin:10px 0;color:var(--accent)}
+.card-line{height:1px;background:var(--line);margin:22px 0}
+.tag-list{display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid #333;border-radius:999px;padding:7px 11px;font-size:.78rem;color:#d5d5d5}
+section{padding:105px 0;border-top:1px solid rgba(255,255,255,.06)}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+.section-kicker{color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:.75rem}
+h2{font-size:clamp(2.2rem,5vw,4.3rem);line-height:.98;letter-spacing:-.06em;margin-top:10px}
+.section-desc{max-width:470px;color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.about-text{font-size:1.08rem;color:#c8c8c8}
+.about-text p+p{margin-top:18px}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.skill{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}
+.skill strong{display:block;margin-bottom:4px}
+.skill span{font-size:.85rem;color:#898989}
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.case{
+  background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:27px;
+  position:relative;overflow:hidden;transition:.3s;
+}
+.case:hover{transform:translateY(-6px);border-color:#4a4a4a}
+.case.featured{grid-column:span 2}
+.case-number{font-size:.72rem;color:#777;letter-spacing:.16em}
+.case h3{font-size:1.7rem;letter-spacing:-.04em;margin:12px 0}
+.case p{color:#aaa}
+.case-meta{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.case-result{
+  margin-top:24px;padding:16px;border-left:3px solid var(--accent);
+  background:#0d0d0d;border-radius:0 12px 12px 0;
+}
+.case-result strong{display:block;color:var(--accent);font-size:1.4rem}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.project{
+  background:linear-gradient(145deg,#161616,#101010);
+  border:1px solid var(--line);border-radius:22px;padding:24px;min-height:220px;
+}
+.project h3{font-size:1.25rem;margin:12px 0}
+.project p{font-size:.9rem;color:#999}
+.project a{display:inline-block;margin-top:18px;color:var(--accent);font-size:.84rem;font-weight:800}
+.timeline{border-left:1px solid #333;padding-left:28px}
+.timeline-item{position:relative;margin-bottom:38px}
+.timeline-item:before{
+  content:"";position:absolute;left:-34px;top:7px;width:9px;height:9px;
+  border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px #111;
+}
+.timeline-item h3{font-size:1.2rem}
+.timeline-item .date{font-size:.75rem;color:#777;text-transform:uppercase;letter-spacing:.12em}
+.timeline-item p{color:#999;margin-top:7px}
+.tools{display:flex;flex-wrap:wrap;gap:10px}
+.tool{padding:10px 14px;border-radius:12px;background:#141414;border:1px solid #2a2a2a;color:#ddd;font-size:.84rem}
+.learning{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.learn{
+  padding:26px;border:1px solid var(--line);border-radius:22px;background:var(--panel);
+}
+.learn h3{margin-bottom:8px}
+.learn p{color:#999}
+.contact{
+  padding:50px;border-radius:30px;background:
+  linear-gradient(135deg,rgba(199,255,61,.12),rgba(125,92,255,.12)),
+  #121212;border:1px solid #303030;
+  text-align:center;
+}
+.contact h2{max-width:800px;margin:12px auto 20px}
+.contact p{color:#aaa;max-width:650px;margin:0 auto 26px}
+footer{padding:35px 0;color:#777;font-size:.8rem;border-top:1px solid #202020}
+.disclaimer{font-size:.72rem;color:#666;margin-top:18px}
+@media(max-width:850px){
+  .nav-links{display:none}
+  .hero{padding:80px 0}
+  .hero-grid,.about-grid,.learning{grid-template-columns:1fr}
+  .case-grid,.project-grid{grid-template-columns:1fr}
+  .case.featured{grid-column:span 1}
+  .section-head{display:block}
+  .section-desc{margin-top:18px}
+  .hero-card{max-width:520px}
+}
+@media(max-width:520px){
+  h1{font-size:3.3rem}
+  section{padding:75px 0}
+  .hero{min-height:auto}
+  .contact{padding:30px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">RYAN<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Case Studies</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Junior Digital Marketer · Vietnam</div>
+      <h1>I turn ideas into <em>digital work.</em></h1>
+      <p class="hero-copy">
+        I’m Ryan Nguyen, a Junior Digital Marketer with hands-on experience across
+        SEO, paid advertising, content, social media, landing pages and AI-assisted marketing.
+        I’m currently looking for a part-time remote opportunity with an international team.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#work">View my work</a>
+        <a class="btn" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="mini-label">Selected campaign scale</div>
+      <div class="metric">100M₫</div>
+      <p style="color:#aaa">Highest Facebook Ads budget I have personally worked with for real-estate lead generation.</p>
+      <div class="card-line"></div>
+      <div class="mini-label">Content result</div>
+      <div class="metric" style="font-size:2.8rem">200K+</div>
+      <p style="color:#aaa">TikTok views on a Dí Tới F&amp;B video, with 150K+ views on Instagram.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">01 / About</div>
+        <h2>Curious, practical,<br>still learning.</h2>
+      </div>
+      <p class="section-desc">I’m building my career around practical marketing execution, experimentation and measurable outcomes.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I’m a Junior Digital Marketer based in Vietnam. My experience has come from real-estate
+          marketing, content projects, F&amp;B social media, affiliate experiments and academic projects.
+        </p>
+        <p>
+          I have worked with SEO and blog content, WordPress-style publishing, landing pages,
+          Meta Ads, TikTok Ads, Google Ads research, social content, customer research and competitor research.
+        </p>
+        <p>
+          I’m especially interested in SEO, performance marketing, short-form content, e-commerce and
+          the changing search landscape. I’m currently learning AEO (Answer Engine Optimization) and AI-assisted marketing.
+        </p>
+      </div>
+      <div class="skills" id="skills">
+        <div class="skill"><strong>SEO & Content</strong><span>Blog writing · On-page thinking · Search research</span></div>
+        <div class="skill"><strong>Paid Media</strong><span>Facebook Ads · TikTok Ads · Google Ads research</span></div>
+        <div class="skill"><strong>Landing Pages</strong><span>AI-assisted website building · LadiPage · HTML</span></div>
+        <div class="skill"><strong>Social Media</strong><span>TikTok · Instagram · Facebook · Short-form video</span></div>
+        <div class="skill"><strong>Research</strong><span>Customer research · Competitor research · Market analysis</span></div>
+        <div class="skill"><strong>AI Marketing</strong><span>AI content workflows · AI product photography · AEO learning</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">02 / Case Studies</div>
+        <h2>Work with<br>real context.</h2>
+      </div>
+      <p class="section-desc">Selected projects showing the problem, my role, execution and available evidence.</p>
+    </div>
+
+    <div class="case-grid">
+      <article class="case featured">
+        <div class="case-number">CASE 01 · PERFORMANCE MARKETING</div>
+        <h3>Real Estate Lead Generation</h3>
+        <p>
+          Worked on Facebook Ads for real-estate marketing with the goal of generating customer leads.
+          I was involved in customer acquisition, landing-page work, market analysis and customer-data handling.
+        </p>
+        <div class="case-meta">
+          <span class="tag">Facebook Ads</span><span class="tag">Lead Generation</span>
+          <span class="tag">Landing Page</span><span class="tag">Market Research</span>
+        </div>
+        <div class="case-result">
+          <strong>Up to 100M₫ ad spend</strong>
+          <span style="color:#999">Highest campaign/project budget I personally worked with. The campaign generated leads.</span>
+        </div>
+        <p class="disclaimer">Performance figures are intentionally limited to verified information available to me; no fabricated lead count or CPL is presented.</p>
+      </article>
+
+      <article class="case">
+        <div class="case-number">CASE 02 · SOCIAL MEDIA</div>
+        <h3>Dí Tới — F&amp;B Content</h3>
+        <p>
+          Owned the content workflow from idea to publication: concept, filming, editing, caption writing and posting.
+          The project focused on short-form social content for an F&amp;B brand.
+        </p>
+        <div class="case-meta">
+          <span class="tag">TikTok</span><span class="tag">Instagram</span><span class="tag">Video</span><span class="tag">Content</span>
+        </div>
+        <div class="case-result">
+          <strong>200K+ TikTok views</strong>
+          <span style="color:#999">The same project also reached 150K+ views on Instagram.</span>
+        </div>
+        <a href="https://www.tiktok.com/@ditoi.q1/video/7669337463520759061" target="_blank">View published video →</a>
+      </article>
+
+      <article class="case">
+        <div class="case-number">CASE 03 · BRAND &amp; E-COMMERCE</div>
+        <h3>Stellar Jewelry</h3>
+        <p>
+          Academic brand project covering branding, landing-page planning, SEO, blog content,
+          AI-assisted product imagery, customer research and competitor research.
+        </p>
+        <div class="case-meta">
+          <span class="tag">Branding</span><span class="tag">SEO</span><span class="tag">Landing Page</span>
+          <span class="tag">AI Image</span><span class="tag">Research</span>
+        </div>
+        <div class="case-result">
+          <strong>End-to-end marketing concept</strong>
+          <span style="color:#999">From positioning and visual direction to web and content planning.</span>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-number">CASE 04 · AFFILIATE EXPERIMENT</div>
+        <h3>TikTok Affiliate &amp; GMV Max</h3>
+        <p>
+          Practiced product research, competitor research, affiliate video creation and paid promotion.
+          GMV Max was explored as a hands-on learning experiment rather than presented as a proven performance case.
+        </p>
+        <div class="case-meta">
+          <span class="tag">TikTok Shop</span><span class="tag">Affiliate</span><span class="tag">GMV Max</span><span class="tag">Research</span>
+        </div>
+        <div class="case-result">
+          <strong>Hands-on experimentation</strong>
+          <span style="color:#999">Focused on understanding product selection, creative testing and campaign mechanics.</span>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-number">CASE 05 · SEO / SEARCH</div>
+        <h3>Search &amp; Keyword Research</h3>
+        <p>
+          Researched keyword competition and search intent to understand which terms are more difficult,
+          which terms may be avoided, and where a business can concentrate effort.
+        </p>
+        <div class="case-meta">
+          <span class="tag">Keyword Research</span><span class="tag">Search Intent</span><span class="tag">SEO</span><span class="tag">Google Ads</span>
+        </div>
+        <div class="case-result">
+          <strong>Decision-focused research</strong>
+          <span style="color:#999">Used competition and intent as inputs for prioritising search terms and bidding strategy.</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">03 / Projects</div>
+        <h2>Build. Test.<br>Learn.</h2>
+      </div>
+      <p class="section-desc">Public work and projects that demonstrate my ability to turn marketing ideas into digital assets.</p>
+    </div>
+
+    <div class="project-grid">
+      <div class="project">
+        <div class="section-kicker">WEB</div>
+        <h3>Landing Page Project</h3>
+        <p>Academic landing-page project built and published on GitHub Pages.</p>
+        <a href="https://sangbbt03-wq.github.io/Landing-Page-/" target="_blank">Open project →</a>
+      </div>
+      <div class="project">
+        <div class="section-kicker">WEB / BEAUTY</div>
+        <h3>Laura Beauty Landing Page</h3>
+        <p>Landing page project focused on presenting a product/service through a conversion-oriented web layout.</p>
+        <a href="https://sangbbt03-wq.github.io/laura-beauty/" target="_blank">Open project →</a>
+      </div>
+      <div class="project">
+        <div class="section-kicker">CONTENT</div>
+        <h3>Dí Tới Social Video</h3>
+        <p>Short-form content project where I handled ideation, filming, editing, caption and publishing.</p>
+        <a href="https://www.tiktok.com/@ditoi.q1/video/7669337463520759061" target="_blank">View video →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">04 / Experience</div>
+        <h2>Experience that<br>shaped my marketing.</h2>
+      </div>
+      <p class="section-desc">A practical background across sales, customer acquisition, content and digital projects.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="date">Real Estate Marketing</div>
+        <h3>Customer Acquisition &amp; Digital Marketing</h3>
+        <p>Customer prospecting, lead generation, Facebook Ads, landing pages, customer data and market analysis.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="date">F&amp;B Content</div>
+        <h3>Dí Tới — Short-form Content</h3>
+        <p>Owned ideation, filming, editing, captions and publishing across TikTok and Instagram.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="date">Academic / Personal Projects</div>
+        <h3>Digital Marketing &amp; E-commerce</h3>
+        <p>Worked on Stellar Jewelry, landing pages, SEO, blogs, branding, AI-assisted visuals and customer/competitor research.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">05 / Tools</div>
+        <h2>Tools I use.</h2>
+      </div>
+      <p class="section-desc">A practical toolkit for content, research, ads, design and web publishing.</p>
+    </div>
+    <div class="tools">
+      <span class="tool">Canva</span><span class="tool">CapCut</span><span class="tool">ChatGPT</span>
+      <span class="tool">Claude</span><span class="tool">Google Workspace</span><span class="tool">Microsoft Excel</span>
+      <span class="tool">Google Ads</span><span class="tool">Meta Ads Manager</span><span class="tool">TikTok Ads</span>
+      <span class="tool">TikTok Shop</span><span class="tool">GMV Max</span><span class="tool">Google Search Console</span>
+      <span class="tool">GA4</span><span class="tool">WordPress</span><span class="tool">HTML</span>
+      <span class="tool">GitHub</span><span class="tool">GitHub Pages</span><span class="tool">LadiPage</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">06 / Learning</div>
+        <h2>What I’m<br>developing next.</h2>
+      </div>
+      <p class="section-desc">I’m intentionally showing learning areas separately from skills I already have hands-on experience with.</p>
+    </div>
+    <div class="learning">
+      <div class="learn">
+        <div class="section-kicker">CURRENTLY LEARNING</div>
+        <h3>AEO — Answer Engine Optimization</h3>
+        <p>Exploring how AI search and answer engines are changing SEO, content structure, brand visibility and discoverability.</p>
+      </div>
+      <div class="learn">
+        <div class="section-kicker">NEXT FOCUS</div>
+        <h3>Performance + Analytics</h3>
+        <p>Developing stronger skills in measurement, conversion tracking, campaign analysis and turning data into marketing decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact">
+      <div class="section-kicker">07 / Contact</div>
+      <h2>Let’s build something useful.</h2>
+      <p>
+        I’m currently open to part-time remote opportunities in Digital Marketing,
+        SEO, Content, Social Media and Paid Media.
+      </p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn btn-primary" href="mailto:sangbbt03@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/ryan-nguyen-9a23803ba/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <p class="disclaimer">Email: sangbbt03@gmail.com · LinkedIn: linkedin.com/in/ryan-nguyen-9a23803ba/</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 Ryan Nguyen · Junior Digital Marketer
+    <div class="disclaimer">This portfolio distinguishes real experience, academic projects and learning experiments. No unsupported performance figures are presented as factual results.</div>
+  </div>
+</footer>
+</body>
+</html>
